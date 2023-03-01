@@ -19,4 +19,9 @@ class HousesController < ApplicationController
     render json: house.as_json
   end
 
+  def show
+    house = House.find(params[:id])
+    render json: house.as_json
+  end
+
 end
