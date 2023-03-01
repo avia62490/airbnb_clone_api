@@ -1,0 +1,16 @@
+### House Index
+GET http://localhost:3000/houses.json
+
+### House Create
+POST http://localhost:3000/houses
+Content-Type: application/json
+
+{
+  "title": "Lake Cabin",
+  "address": "Somewhere in Michigan",
+  "description": "Nice House on the lake!!",
+  "price_rate": 150,
+  "max_guests": 6,
+  "bedrooms": 3,
+  "bathrooms": 2
+}
