@@ -17,3 +17,25 @@ Content-Type: application/json
 
 ### House Show
 GET http://localhost:3000/properties/3
+
+### Property Update
+PATCH http://localhost:3000/properties/2
+Content-Type: application/json
+
+{
+  "title": "Test title update",
+  "address": "Test address update",
+  "description": "Test description update",
+  "price_rate": 500,
+  "max_guests": 100,
+  "bedrooms": 67,
+  "bathrooms": 55,
+  "service_fee": 789,
+  "hot_tub": true,
+  "pool": true,
+  "laundry": true,
+  "fireplace": true
+}
+
+### Property Delete
+DELETE http://localhost:3000/properties/2

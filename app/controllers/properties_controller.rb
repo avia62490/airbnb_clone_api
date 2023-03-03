@@ -43,4 +43,10 @@ class PropertiesController < ApplicationController
     render json: property.as_json
   end
 
+  def destroy
+    property = Property.find(params[:id])
+    property.destroy
+    render json: property.as_json
+  end
+
 end

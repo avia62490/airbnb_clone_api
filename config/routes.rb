@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   post "/properties" => "properties#create"
   get "/properties/:id" => "properties#show"
   patch "/properties/:id" => "properties#update"
+  delete "/properties/:id" => "properties#destroy"
 end
