@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   ####### HOUSE ##########
-  get "/houses" => "houses#index"
-  post "/houses" => "houses#create"
-  get "/houses/:id" => "houses#show"
+  get "/properties" => "properties#index"
+  post "/properties" => "properties#create"
+  get "/properties/:id" => "properties#show"
 end

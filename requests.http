@@ -1,12 +1,12 @@
 ### House Index
-GET http://localhost:3000/houses.json
+GET http://localhost:3000/properties.json
 
 ### House Create
-POST http://localhost:3000/houses
+POST http://localhost:3000/properties
 Content-Type: application/json
 
 {
-  "title": "Lake Cabin",
+  "title": "Test for proprty",
   "address": "Somewhere in Michigan",
   "description": "Nice House on the lake!!",
   "price_rate": 150,
@@ -14,3 +14,6 @@ Content-Type: application/json
   "bedrooms": 3,
   "bathrooms": 2
 }
+
+### House Show
+GET http://localhost:3000/properties/3

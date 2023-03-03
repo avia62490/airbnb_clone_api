@@ -1,12 +1,12 @@
-class HousesController < ApplicationController
+class PropertiesController < ApplicationController
 
   def index
-    houses = House.all
-    render json: houses.as_json
+    properties = Property.all
+    render json: properties.as_json
   end
 
   def create
-    house = House.new(
+    property = Property.new(
       title: params[:title],
       address: params[:address],
       description: params[:description],
@@ -15,13 +15,13 @@ class HousesController < ApplicationController
       bedrooms: params[:bedrooms],
       bathrooms: params[:bathrooms]
     )
-    house.save
-    render json: house.as_json
+    property.save
+    render json: property.as_json
   end
 
   def show
-    house = House.find(params[:id])
-    render json: house.as_json
+    property = Property.find(params[:id])
+    render json: property.as_json
   end
 
 end
