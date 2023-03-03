@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   get "/properties/:id" => "properties#show"
   patch "/properties/:id" => "properties#update"
   delete "/properties/:id" => "properties#destroy"
+
+  ###### USER / SESSION ######
+  post "/users" => "users#create"
 end
