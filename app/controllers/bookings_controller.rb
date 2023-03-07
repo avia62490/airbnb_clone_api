@@ -5,8 +5,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(
       property_id: params[:property_id],
       user_id: params[:user_id],
-      check_in_date: "2023-03-20",
-      check_out_date: "2023-03-23"
+      check_in_date: params[:check_in_date],
+      check_out_date: params[:check_out_date]
     )
     @booking.save
     render template: "bookings/show"
