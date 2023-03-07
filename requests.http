@@ -1,41 +1,35 @@
 ### House Index
 GET http://localhost:3000/properties.json
 
-### House Create
-POST http://localhost:3000/properties
-Content-Type: application/json
-
-{
-  "title": "Test for proprty",
-  "address": "Somewhere in Michigan",
-  "description": "Nice House on the lake!!",
-  "price_rate": 150,
-  "max_guests": 6,
-  "bedrooms": 3,
-  "bathrooms": 2
-}
-
 ### House Show
 GET http://localhost:3000/properties/3
 
-### Property Update
-PATCH http://localhost:3000/properties/2
+### Users create (signup)
+POST http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "title": "Test title update",
-  "address": "Test address update",
-  "description": "Test description update",
-  "price_rate": 500,
-  "max_guests": 100,
-  "bedrooms": 67,
-  "bathrooms": 55,
-  "service_fee": 789,
-  "hot_tub": true,
-  "pool": true,
-  "laundry": true,
-  "fireplace": true
+  "user_name": "Jdoe",
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "john@doe.com",
+  "password": "password",
+  "password_confirmation": "password"
 }
 
-### Property Delete
-DELETE http://localhost:3000/properties/2
+### Sessions create (login)
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+  "email": "john@doe.com",
+  "password": "password"
+}
+
+### Bookings create
+POST http://localhost:3000/bookings.json
+Content-Type: application/json
+
+{
+  "property_id": 1
+}
