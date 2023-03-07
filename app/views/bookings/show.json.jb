@@ -1,0 +1,8 @@
+{
+  id: @booking.id,
+  check_in_date: @booking.check_in_date,
+  check_out_date: @booking.check_out_date,
+  date_range: @booking.date_range,
+  property_id: @booking.property_id,
+  user_id: @booking.user_id
+}
