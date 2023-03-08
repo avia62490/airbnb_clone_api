@@ -3,6 +3,10 @@
   check_in_date: @booking.check_in_date,
   check_out_date: @booking.check_out_date,
   date_range: @booking.date_range,
+  sub_total: @booking.sub_total,
+  service_fee: @booking.service_fee,
+  total: @booking.total,
+  status: @booking.status,
   property_id: @booking.property_id,
   user_id: @booking.user_id
 }
