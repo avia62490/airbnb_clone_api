@@ -23,4 +23,11 @@ class BookingsController < ApplicationController
     @booking.save
     render template: "bookings/show"
   end
+
+  def index
+    @bookings = Booking.all
+    render template: "bookings/index"
+    # render json: @bookings.as_json
+  end
+
 end
