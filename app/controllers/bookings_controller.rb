@@ -6,8 +6,8 @@ class BookingsController < ApplicationController
     nightly_rate = location.price_rate
     check_in =  params[:check_in_date]
     check_out =  params[:check_out_date]
-    date_range = (check_in..check_out).to_a
-    sub_total = nightly_rate * (date_range.length - 1)
+    date_range = (check_in...check_out).to_a
+    sub_total = nightly_rate * (date_range.length)
     service_fee = location.service_fee
     total = sub_total + service_fee
 
@@ -20,8 +20,18 @@ class BookingsController < ApplicationController
       service_fee: service_fee,
       total: total
     )
-    @booking.save
-    render template: "bookings/show"
+    overlapping_bookings = Booking.where(
+      property_id: @booking.property_id
+    ).where(
+      "check_in_date < ? AND
+       check_out_date > ?",
+      @booking.check_out_date,
+      @booking.check_in_date
+    )
+    
+    # @booking.save
+    # render template: "bookings/show"
+    render json: overlapping_bookings.as_json
   end
 
   def index
