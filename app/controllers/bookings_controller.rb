@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  # before_action :authenticate_user
+  before_action :authenticate_user, except: [:index] 
 
   def create
     location = Property.find_by(id: params[:property_id])
@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
 
     @booking = Booking.new(
       property_id: location.id,
-      user_id: params[:user_id],
+      user_id: current_user.id,
       check_in_date: params[:check_in_date],
       check_out_date: params[:check_out_date],
       sub_total: sub_total,
