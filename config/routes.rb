@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   ####### BOOKING ###########
   post "/bookings" => "bookings#create"
   get "/bookings" => "bookings#index"
+  patch "/bookings/:id" => "bookings#update"
 end
