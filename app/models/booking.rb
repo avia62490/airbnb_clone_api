@@ -23,15 +23,19 @@ class Booking < ApplicationRecord
     overlapping_bookings = Booking.where(
       property_id: property.id
     ).where(
-      "id != ? AND
-      check_in_date < ? AND
+      "check_in_date < ? AND
       check_out_date > ?",
-      id,
       check_out_date,
       check_in_date
     )
 
-    overlapping_bookings.any? ? false : true
+    if overlapping_bookings.length > 1
+      false
+    elsif overlapping_bookings.length == 1
+      overlapping_bookings[0].id = id ? true : false
+    else
+      true
+    end
 
   end
 

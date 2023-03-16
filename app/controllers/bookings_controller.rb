@@ -12,20 +12,11 @@ class BookingsController < ApplicationController
     @booking.service_fee = @booking.calculate_service_fee
     @booking.total = @booking.calculate_total
     
-    overlapping_bookings = Booking.where(
-      property_id: @booking.property_id
-    ).where(
-      "check_in_date < ? AND
-       check_out_date > ?",
-      @booking.check_out_date,
-      @booking.check_in_date
-    )
-    
-    if overlapping_bookings.any?
-      render json: {message: "Date range conflicts with a current booking for this property"}
-    else
+    if @booking.are_dates_available
       @booking.save
       render template: "bookings/show"
+    else
+      render json: {message: "Date range conflicts with a current booking for this property"}
     end
     
   end
