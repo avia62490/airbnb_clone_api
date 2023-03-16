@@ -17,4 +17,22 @@ class Booking < ApplicationRecord
   def calculate_total
     calculate_sub_total + calculate_service_fee
   end
+
+  def are_dates_available
+    
+    overlapping_bookings = Booking.where(
+      property_id: property.id
+    ).where(
+      "id != ? AND
+      check_in_date < ? AND
+      check_out_date > ?",
+      id,
+      check_out_date,
+      check_in_date
+    )
+
+    overlapping_bookings.any? ? false : true
+
+  end
+
 end
