@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user, except: [:index] 
+  # before_action :authenticate_user, except: [:index] 
 
   def create
     
@@ -42,6 +42,11 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
+    render template: "bookings/index"
+  end
+
+  def property_bookings
+    @bookings = Booking.where(property_id: params[:id])
     render template: "bookings/index"
   end
 
