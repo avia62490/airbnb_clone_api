@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   post "/bookings" => "bookings#create"
   get "/bookings" => "bookings#index"
   patch "/bookings/:id" => "bookings#update"
-  get "/property/bookings/:id" => "bookings#property_bookings"
+  get "/bookings/property/:id" => "bookings#property_bookings"
+  get "/bookings/user/:id" => "bookings#user_bookings"
 end

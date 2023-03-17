@@ -50,4 +50,9 @@ class BookingsController < ApplicationController
     render template: "bookings/index"
   end
 
+  def user_bookings
+    @bookings = Booking.where(user_id: params[:id])
+    render template: "bookings/index"
+  end
+  
 end
