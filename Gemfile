@@ -48,3 +48,4 @@ end
 
 gem 'jwt'
 gem 'jb'
+gem 'geocoder'

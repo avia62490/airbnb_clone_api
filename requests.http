@@ -1,18 +1,22 @@
-### House Index
-GET http://localhost:3000/properties.json
+@user1 = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzkwODU3NjR9.aQVthuAKOnOUkDXo4Va9kzNxSWb9YqUotE9lICi5HsA
 
-### House Show
-GET http://localhost:3000/properties/3
+@user2 = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzkxNjU0MDR9.2YYnHDjx5iqqQM5YmWd44ykaA0s0zdAPssipHPRGwaA
+
+### All bookings for User
+GET http://localhost:3000/bookings/user/2.json
+
+### All bookings for Property
+GET http://localhost:3000/bookings/property/3.json
 
 ### Users create (signup)
 POST http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "user_name": "Jdoe",
-  "first_name": "John",
-  "last_name": "Doe",
-  "email": "john@doe.com",
+  "user_name": "Avia",
+  "first_name": "Alex",
+  "last_name": "Via",
+  "email": "alex@via.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -22,14 +26,27 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "john@doe.com",
+  "email": "alex@via.com",
   "password": "password"
 }
 
 ### Bookings create
 POST http://localhost:3000/bookings.json
+Authorization: Bearer {{user2}}
 Content-Type: application/json
 
 {
-  "property_id": 1
+  "property_id": 4,
+  "check_in_date": "2023-09-12",
+  "check_out_date": "2023-09-16"
+}
+
+### Update Booking (Change dates)
+PATCH http://localhost:3000/bookings/34.json
+Authorization: Bearer {{user2}}
+Content-Type: application/json
+
+{
+  "check_in_date": "2023-09-02",
+  "check_out_date": "2023-09-04"
 }

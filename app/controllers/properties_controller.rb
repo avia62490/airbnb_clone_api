@@ -49,4 +49,9 @@ class PropertiesController < ApplicationController
     render json: property.as_json
   end
 
+  def search
+    results = Geocoder.search("Paris")
+    render json: results.first.coordinates.as_json
+  end
+
 end
